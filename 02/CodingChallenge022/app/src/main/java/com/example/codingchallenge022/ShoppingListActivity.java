@@ -9,21 +9,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.codingchallenge022.databinding.ActivityShoppingListBinding;
 
 public class ShoppingListActivity extends AppCompatActivity {
-    private ActivityShoppingListBinding shoppingListBinding;
-    private final Button[] mButton = {
-            shoppingListBinding.button,
-            shoppingListBinding.button2,
-            shoppingListBinding.button3,
-            shoppingListBinding.button4,
-            shoppingListBinding.button5,
-            shoppingListBinding.button6,
-    };
     public final static String ITEM_TAG = "com.example.codingchallenge022.EXTRA.ITEM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityShoppingListBinding shoppingListBinding = ActivityShoppingListBinding.inflate(getLayoutInflater());
         setContentView(shoppingListBinding.getRoot());
+
+        Button[] mButton = new Button[]{
+                shoppingListBinding.button,
+                shoppingListBinding.button2,
+                shoppingListBinding.button3,
+                shoppingListBinding.button4,
+                shoppingListBinding.button5,
+                shoppingListBinding.button6,
+        };
 
         for (Button button : mButton) {
             button.setOnClickListener(v -> {
