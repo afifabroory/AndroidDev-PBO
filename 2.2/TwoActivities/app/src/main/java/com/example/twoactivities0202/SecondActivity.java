@@ -17,6 +17,9 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "onCreate");
+
         secondBinding = ActivitySecondBinding.inflate(getLayoutInflater());
 
         secondBinding.buttonMain.setOnClickListener(view -> {
@@ -26,6 +29,7 @@ public class SecondActivity extends AppCompatActivity {
             intent.putExtra(EXTRA_REPLY, secondBinding.editText.getText().toString());
 
             setResult(RESULT_OK, intent);
+            Log.d(LOG_TAG, "End SecondActivity");
             finish();
         });
 
@@ -33,5 +37,41 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         secondBinding.textView2.setText(intent.getStringExtra(MainActivity.EXTRA_MESSAGE));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(LOG_TAG, "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(LOG_TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(LOG_TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(LOG_TAG, "onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(LOG_TAG, "onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(LOG_TAG, "onDestroy");
     }
 }
