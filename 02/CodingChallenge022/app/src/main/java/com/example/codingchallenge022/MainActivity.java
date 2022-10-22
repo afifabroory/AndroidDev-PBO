@@ -2,7 +2,6 @@ package com.example.codingchallenge022;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.codingchallenge022.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    private final String LOG_TAG = MainActivity.class.getSimpleName();
     private int mTextViewCount = 0;
     private ActivityMainBinding mainBinding;
     private TextView[] mTextView;
