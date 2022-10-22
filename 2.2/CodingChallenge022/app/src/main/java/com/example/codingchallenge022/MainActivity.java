@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.codingchallenge022.databinding.ActivityMainBinding;
@@ -24,11 +25,24 @@ public class MainActivity extends AppCompatActivity {
                             mTextView[mTextViewCount].setText(item);
                             mTextViewCount++;
 
-                            if (mTextViewCount == 9) {
+                            if (mTextViewCount == 9)
                                 mainBinding.addItem.setEnabled(false);
-                            }
                         }
                     });
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        String[] textView = new String[mTextViewCount + 1];
+        for (int i = 0; i <= mTextViewCount; i++) {
+            String text = mTextView[i].getText().toString();
+            textView[i] = text;
+        }
+
+        outState.putStringArray("item_list", textView);
+        outState.putBoolean("addItem_disabled", mainBinding.addItem.isEnabled());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +66,14 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ShoppingListActivity.class);
             mAddShoppingList.launch(intent);
         });
+
+        if (savedInstanceState != null) {
+            String[] tv = savedInstanceState.getStringArray("item_list");
+            mTextViewCount = tv.length - 1;
+
+            for (int i = 0; i <= mTextViewCount; i++)
+                mTextView[i].setText(tv[i]);
+            mainBinding.addItem.setEnabled(savedInstanceState.getBoolean("addItem_disabled"));
+        }
     }
 }
