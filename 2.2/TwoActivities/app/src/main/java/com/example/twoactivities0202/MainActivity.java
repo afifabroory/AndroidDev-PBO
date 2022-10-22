@@ -1,5 +1,6 @@
 package com.example.twoactivities0202;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,16 @@ public class MainActivity extends AppCompatActivity {
     public final static int TEXT_REQUEST = 1; // Public constant for particular response type
 
     private ActivityMainBinding mainBinding;
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mainBinding.textHeaderReply.getVisibility() == View.VISIBLE) {
+            outState.putBoolean("reply_visible", true);
+            outState.putString("reply_message", mainBinding.textView2.getText().toString());
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setContentView(mainBinding.getRoot());
+
+        if (savedInstanceState != null) {
+            if (savedInstanceState.getBoolean("reply_visible", false)) {
+                mainBinding.textView2.setVisibility(View.VISIBLE);
+                mainBinding.textHeaderReply.setVisibility(View.VISIBLE);
+
+                mainBinding.textView2.setText(savedInstanceState.getString("reply_message"));
+            }
+        }
     }
 
     @Override
