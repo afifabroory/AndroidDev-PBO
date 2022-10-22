@@ -18,7 +18,7 @@ public class ShoppingListActivity extends AppCompatActivity {
             shoppingListBinding.button5,
             shoppingListBinding.button6,
     };
-    private final static String ITEM_TAG = "com.example.codingchallenge022.EXTRA.ITEM";
+    public final static String ITEM_TAG = "com.example.codingchallenge022.EXTRA.ITEM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
