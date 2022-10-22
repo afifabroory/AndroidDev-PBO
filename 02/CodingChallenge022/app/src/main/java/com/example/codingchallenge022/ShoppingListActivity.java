@@ -1,10 +1,10 @@
 package com.example.codingchallenge022;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.codingchallenge022.databinding.ActivityShoppingListBinding;
 
@@ -25,7 +25,7 @@ public class ShoppingListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(shoppingListBinding.getRoot());
 
-        for (Button button: mButton) {
+        for (Button button : mButton) {
             button.setOnClickListener(v -> {
                 Button btn = (Button) v;
 
