@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="http" android:host="*" />
+                <data android:scheme="https" android:host="*" />
             </intent-filter>
 
             <meta-data
