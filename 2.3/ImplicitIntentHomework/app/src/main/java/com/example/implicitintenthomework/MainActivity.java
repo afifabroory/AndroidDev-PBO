@@ -6,6 +6,7 @@ import androidx.core.app.ShareCompat;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 
 import com.example.implicitintenthomework.databinding.ActivityMainBinding;
@@ -53,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
                     .setChooserTitle(R.string.share_text_with)
                     .setText(text)
                     .startChooser();
+        });
+
+        mainBinding.btnTakePicture.setOnClickListener(v -> {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if (intent.resolveActivity(getPackageManager()) != null)
+                startActivity(intent);
         });
     }
 }
