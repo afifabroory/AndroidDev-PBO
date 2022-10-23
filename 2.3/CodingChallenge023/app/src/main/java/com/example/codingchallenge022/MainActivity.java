@@ -1,9 +1,7 @@
 package com.example.codingchallenge022;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -14,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.codingchallenge022.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    private final String LOG_TAG = MainActivity.class.getSimpleName();
     private int mTextViewCount = 0;
     private ActivityMainBinding mainBinding;
     private TextView[] mTextView;
@@ -68,18 +65,6 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.addItem.setOnClickListener(v -> {
             Intent intent = new Intent(this, ShoppingListActivity.class);
             mAddShoppingList.launch(intent);
-        });
-
-        mainBinding.btnSearchLoc.setOnClickListener(v -> {
-            String loc = mainBinding.editTextSearchLocation.getText().toString();
-
-            Uri geoLoc = Uri.parse("geo:0,0?q=" + loc);
-            Intent intent = new Intent(Intent.ACTION_VIEW, geoLoc);
-
-            if (intent.resolveActivity(getPackageManager()) != null)
-                startActivity(intent);
-            else
-                Log.d(LOG_TAG, "Can't handle open a location");
         });
 
         if (savedInstanceState != null) {
