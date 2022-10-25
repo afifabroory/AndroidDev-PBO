@@ -37,6 +37,8 @@
     <!-- Button label for mul operation -->
     <string name="mul_operation_text">Mul</string>
 
+    <string name="pow_operation_text">Pow</string>
+
     <!-- Message for textview in case of errors  -->
     <string name="computationError">Error</string>
 
