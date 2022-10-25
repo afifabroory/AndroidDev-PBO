@@ -93,5 +93,12 @@ public class CalculatorTest {
         assertThat(resultDiv, is(equalTo(16d)));
     }
 
+    @Test
+    public void divByZeroThrows() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            mCalculator.div(32d,0f);
+        });
+
+        assertThat("Can't divide with zero", is(equalTo(exception.getMessage())));
     }
 }
