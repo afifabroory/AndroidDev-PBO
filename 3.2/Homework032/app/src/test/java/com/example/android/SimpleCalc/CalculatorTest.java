@@ -18,7 +18,6 @@ package com.example.android.SimpleCalc;
 
 import androidx.test.filters.SmallTest;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -100,5 +99,47 @@ public class CalculatorTest {
         });
 
         assertThat("Can't divide with zero", is(equalTo(exception.getMessage())));
+    }
+
+    @Test
+    public void powTwoPositiveNumber() {
+        double resultPow = mCalculator.pow(2,3);
+        assertThat(resultPow, is(equalTo(8d)));
+    }
+
+    @Test
+    public void powNegativeFirstOperand() {
+        double resultPow = mCalculator.pow(-2,3);
+        assertThat(resultPow, is(equalTo(-8d)));
+    }
+
+    @Test
+    public void powNegativeSecondOperand() {
+        // 2^(-3) equivalent to cube root of 2
+        double resultRow = mCalculator.pow(2, -3);
+        assertThat(resultRow, is(equalTo(0.125d)));
+    }
+    @Test
+    public void powZeroFirstOperand() {
+        double resultRow = mCalculator.pow(0, 999);
+        assertThat(resultRow, is(equalTo(0d)));
+    }
+
+    @Test
+    public void powZeroSecondOperand() {
+        double resultRow = mCalculator.pow(2, 0);
+        assertThat(resultRow, is(equalTo(1d)));
+    }
+
+    @Test
+    public void powZeroFirstOperandAndNegativeOneSecondOperand() {
+        double resultRow = mCalculator.pow(0, -1);
+        assertThat(resultRow, is(equalTo(Double.POSITIVE_INFINITY)));
+    }
+
+    @Test
+    public void powNegativeZeroFirstOperandAndNegativeNumberSecondOperand() {
+        double resultRow = mCalculator.pow(-0, -2);
+        assertThat(resultRow, is(equalTo(Double.POSITIVE_INFINITY)));
     }
 }
