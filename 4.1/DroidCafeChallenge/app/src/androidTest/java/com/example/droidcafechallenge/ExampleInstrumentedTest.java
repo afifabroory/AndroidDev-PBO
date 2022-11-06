@@ -1,4 +1,4 @@
-package com.example.droidcafe;
+package com.example.droidcafechallenge;
 
 import android.content.Context;
 

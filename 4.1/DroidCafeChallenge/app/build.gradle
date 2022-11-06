@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.droidcafe'
+    namespace 'com.example.droidcafechallenge'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.droidcafe"
+        applicationId "com.example.droidcafechallenge"
         minSdk 21
         targetSdk 33
         versionCode 1

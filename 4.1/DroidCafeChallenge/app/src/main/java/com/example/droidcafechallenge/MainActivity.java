@@ -1,4 +1,4 @@
-package com.example.droidcafe;
+package com.example.droidcafechallenge;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.droidcafe.databinding.ActivityMainBinding;
+import com.example.droidcafechallenge.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;

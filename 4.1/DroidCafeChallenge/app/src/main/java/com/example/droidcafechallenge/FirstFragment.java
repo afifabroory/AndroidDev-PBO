@@ -1,4 +1,4 @@
-package com.example.droidcafe;
+package com.example.droidcafechallenge;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.droidcafe.databinding.FragmentFirstBinding;
+import com.example.droidcafechallenge.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
 

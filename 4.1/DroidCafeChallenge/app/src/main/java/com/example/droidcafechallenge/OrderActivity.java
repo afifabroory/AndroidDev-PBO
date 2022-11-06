@@ -1,11 +1,11 @@
-package com.example.droidcafe;
+package com.example.droidcafechallenge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.droidcafe.databinding.ActivityOrderBinding;
+import com.example.droidcafechallenge.databinding.ActivityOrderBinding;
 
 public class OrderActivity extends AppCompatActivity {
 
